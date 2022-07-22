@@ -16,12 +16,12 @@ deploy:
   port:
   - 9200
   - 9300
-
+  
 volumes:
-- claim: elasticsearch-data
-  mount: /appz/data
-  name: data
-  size: 20Gi
+  - claim: es-data
+    mount: /appz/data
+    name: data
+    size: 10Gi
 
 properties:
   ELASTIC_PASSWORD:
