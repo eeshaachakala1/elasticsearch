@@ -1,40 +1,37 @@
 app:
-  name: elasticsearch
-  code: ELASTICSEARCH
-  notify: eachakala@ecloudcontrol.com
-
+    name: elasticsearch
+    code: ELASTICSEARCH
+    notify: eachakala@ecloudcontrol
 build:
-  version: 7.12
-  env: DEV
-  build_file: none
-  output_files: output/*.zip
-  image_template: elasticsearch-7.12
-
+    version: 7.12
+    env: DEV
+    build_file: none
+    output_files: output/*.zip
+    image_template: elasticsearch-7.12
 deploy:
-  context: eeshaachakala1/DEV 
-  replicas: 1
-  port:
-  - 9200
-  - 9300
-  
+    context: eeshaachakala1/DEV
+    replicas: 1
+    type: statefulset
+    port:
+    - 9200
+    - 9300
 volumes:
   - claim: es-data
     mount: /appz/data
     name: data
     size: 10Gi
-
 properties:
-  ELASTIC_PASSWORD:
-       vault: ELASTIC_PASSWORD
-  ES_DEFAULT_USER: elastic
-  ES_LOG_STYLE: console
-  ES_USER1: User1
-  ES_PASS1:
-       vault: ES_PASS1
-  ES_ROLE1: superuser
-  ES_USER2: user2
-  ES_PASS2: 
-       vault: ES_PASS2
-  ES_ROLE2: superuser
-  TINI_SUBREAPER: true
-  revision : 04
+    ELASTIC_PASSWORD:
+        vault: ELASTIC_PASSWORD
+    ES_DEFAULT_USER: elastic
+    ES_LOG_STYLE: console
+    ES_USER1: User1
+    ES_PASS1:
+        vault: ES_PASS1
+    ES_ROLE1: superuser
+    ES_USER2: user2
+    ES_PASS2: 
+        vault: ES_PASS2
+    ES_ROLE2: superuser
+    TINI_SUBREAPER: true
+    revision : 7
