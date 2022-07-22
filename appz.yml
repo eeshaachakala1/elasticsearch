@@ -1,19 +1,17 @@
 app:
-  name: AppzElasticsearch
-  code: AES
-  notify: appz@cloudbourne.co
+  name: elasticsearch
+  code: ELASTICSEARCH
+  notify: eachakala@ecloudcontrol.com
 
 build:
-  version: 7.9
+  version: 7.12
   env: DEV
   build_file: none
   output_files: output/*.zip
-  image_template: elasticsearch-7.9
-  image_name: alpha/elasticsearch
+  image_template: elasticsearch-7.12
 
 deploy:
-  context: alpha/DEV
-  type: elasticsearch6  
+  context: eeshaachakala1/DEV 
   replicas: 1
   port:
   - 9200
@@ -22,13 +20,8 @@ deploy:
 volumes:
 - claim: elasticsearch-data
   mount: /appz/data
-  name: elasticsearch-data
+  name: data
   size: 20Gi
-  mode: ReadWriteOnce
-  class: microk8s-hostpath
-
-monitor:
-  notify: appzops@cloudbourne.co      
 
 properties:
-  revision : 03
+  revision : 04
