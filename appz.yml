@@ -33,5 +33,6 @@ properties:
     ES_PASS2: 
         vault: ES_PASS2
     ES_ROLE2: superuser
+    xpack.security.enabled: false
     TINI_SUBREAPER: true
     revision : 8
