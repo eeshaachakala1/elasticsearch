@@ -38,5 +38,5 @@ properties:
     discovery.type: single-node
     xpack.security.enabled: false
     path.data: /appz/data/nodes
-    revision : 15
+    revision : 16
     
